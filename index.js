@@ -1,29 +1,33 @@
-const imageForm = document.querySelector("#fileForm")
-const fileInput = document.querySelector(" fileInput")
+const fileForm = document.querySelector("#fileForm")
+const fileUpload = document.querySelector("#fileUpload")
 
 fileForm.addEventListener("submit", async event => {
   event.preventDefault()
-  const file = fileInput.files[0]
 
-  const { url } = await fetch("/api/s3_url").then(res => res.json())
-  console.log(url)
+  const url = "http://localhost:5000/upload"
 
-  // post the image direclty to the s3 bucket
-  await fetch(url, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "multipart/form-data"
-    },
-    body: file
+  console.log(fileUpload.files[0])
+  const formData = new FormData()
+  formData.append('myFile', fileUpload.files[0])
+
+  fetch(url, {
+    method: 'POST',
+    body: formData
   })
-
-  const imageUrl = url.split('?')[0]
-  console.log(imageUrl)
-
-  // post requst to my server to store any extra data
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+  })
+  .catch(error => {
+    console.error(error)
+  })
   
-  
-  const img = document.createElement("img")
-  img.src = imageUrl
-  document.body.appendChild(img)
 })
+
+const start =  async () => {
+  const web3 = await getWeb3();
+  const accounts = await web3.eth.getAccounts();
+  console.log({accounts})
+  const contract = await getContract(web3);
+}
+// start()
