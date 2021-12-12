@@ -11,29 +11,6 @@ fileForm.addEventListener("submit", async event => {
 //  const files = await contract.methods.getFiles().call({from: account})
   // console.log(files)
   displayCids([newFile])
-  // let a = document.createElement("a")
-  //   a.href = `https://ipfs.io/ipfs/${newFile}`
-  //   a.innerHTML = newFile
-  //   document.body.appendChild(a)
-  //   let br = document.createElement("br")
-  //   document.body.appendChild(br)
-  // const url = "http://localhost:5000/upload"
-
-  // const formData = new FormData()
-  // formData.append('myFile', fileUpload.files[0])
-  // formData.append('accountAddress', "huihb")
-
-  // fetch(url, {
-  //   method: 'POST',
-  //   body: formData
-  // })
-  // .then(response => response.json())
-  // .then(data => {
-  //   console.log(data)
-  // })
-  // .catch(error => {
-  //   console.error(error)
-  // })
   
 })
 
