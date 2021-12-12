@@ -10,12 +10,13 @@ fileForm.addEventListener("submit", async event => {
  const newFile = await contract.methods.addFile(results.path).call()
 //  const files = await contract.methods.getFiles().call({from: account})
   // console.log(files)
-  let a = document.createElement("a")
-    a.href = `https://ipfs.io/ipfs/${newFile}`
-    a.innerHTML = newFile
-    document.body.appendChild(a)
-    let br = document.createElement("br")
-    document.body.appendChild(br)
+  displayCids([newFile])
+  // let a = document.createElement("a")
+  //   a.href = `https://ipfs.io/ipfs/${newFile}`
+  //   a.innerHTML = newFile
+  //   document.body.appendChild(a)
+  //   let br = document.createElement("br")
+  //   document.body.appendChild(br)
   // const url = "http://localhost:5000/upload"
 
   // const formData = new FormData()
@@ -46,19 +47,22 @@ window.addEventListener("load", async () => {
   // console.log(accounts[0])
   contract = await getContract(web3)
   const files = await contract.methods.getFiles().call({from: account})
+  displayCids(files)
 
-  for(let i = 0; i < files.length; i++) {
-    console.log(files[i])
+})
+
+const displayCids = (cids) => {
+  for(let i = 0; i < cids.length; i++) {
+    console.log(cids[i])
 
     let a = document.createElement("a")
-    a.href = `https://ipfs.io/ipfs/${files[i]}`
-    a.innerHTML = files[i]
+    a.href = `https://ipfs.io/ipfs/${cids[i]}`
+    a.innerHTML = cids[i]
     document.body.appendChild(a)
     let br = document.createElement("br")
     document.body.appendChild(br)
   }
-
-})
+}
 
 const start =  async () => {
   if ((typeof window.ethereum !== 'undefined')
