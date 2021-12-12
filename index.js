@@ -1,11 +1,13 @@
 const fileForm = document.querySelector("#fileForm")
 const fileUpload = document.querySelector("#fileUpload")
 
+let web3, contract;
 fileForm.addEventListener("submit", async event => {
   event.preventDefault()
   const node = await Ipfs.create()
   const results = await node.add(fileUpload.files[0])
   console.log(results.path)
+  console.log({contract})
 
 
   // const url = "http://localhost:5000/upload"
@@ -29,11 +31,11 @@ fileForm.addEventListener("submit", async event => {
 })
 
 window.addEventListener("load", async () => {
-  const web3 = await start()
+  web3 = await start()
   const accounts = await web3.eth.getAccounts();
   console.log({accounts})
-  const contract = await getContract(web3)
-  console.log({contract})
+  contract = await getContract(web3)
+  // console.log({contract})
 
 })
 
