@@ -19,7 +19,13 @@ const getWeb3 = () => {
 
 
 const getContract = async (web3) => {
-const data = await $.getJSON("./contracts/FileStore.json");
+let data = await fetch("./contracts/FileStore.json", {
+    method: "GET",
+    headers: {
+       "Authorization": "Bearer bbbnononip" 
+    }
+})
+console.log({data})
 
 const netId = await web3.eth.net.getId();
 const deployedNetwork = data.networks[netId];
