@@ -5,16 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ipfs/0.58.6/index.min.js" integrity="sha512-qvhn4htMwhBFaN0pOh62534iOQOTGfpQjNLSI7mf34+cj4DvkmCurJAOCHE3/Copn/qWif5nNNfYU7gjMJS8lA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
   <title>File store!</title>
 </head>
-<body>
-    
+<body class = "container">
+    <h3>Welcome to File store!</h3>
+    <h5>Securely upload your files with authenticity guaranteed by IPFS and Solidity</h5>
     <form id="fileForm">
         <input id="fileUpload" type="file" accept="*">
         <button type="submit">Upload</button>
     </form>
+    Uploaded files
+    <br>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.2.2/dist/web3.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="src/utils.js"></script>
