@@ -13,4 +13,4 @@ Watch the implementation at [https://youtu.be/iXuX9THJH_0](https://youtu.be/iXuX
 
 Test it out at [https://kevinam99.github.io/buidl-it-frontend/](https://kevinam99.github.io/buidl-it-frontend/)
 
-Link to the frontend repo: [https://github.com/kevinam99/buidl-it-frontend](https://github.com/kevinam99/buidl-it-frontend)
+Link to the smart contract repo: [https://github.com/kevinam99/polygon-buidl-it](https://github.com/kevinam99/polygon-buidl-it)
