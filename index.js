@@ -1,5 +1,8 @@
 const fileForm = document.querySelector("#fileForm")
 const fileUpload = document.querySelector("#fileUpload")
+const shareFileForm = document.querySelector("#shareFileForm")
+const sharedFile = document.querySelector("#cid")
+const shareWith = document.querySelector("#contractAddress")
 
 let web3, contract, account;
 fileForm.addEventListener("submit", async event => {
@@ -12,6 +15,16 @@ fileForm.addEventListener("submit", async event => {
   // console.log(files)
   displayCids([newFile])
   
+})
+
+shareFileForm.addEventListener("submit", async event => {
+  event.preventDefault()
+  const address = shareFileForm[0].value
+  const cid = shareFileForm[1].value
+  const sharedFile = await contract.methods.shareFile(address, cid).call({from: account})
+  console.log({sharedFile})
+  displayCids([sharedFile])
+
 })
 
 window.addEventListener("load", async () => {
@@ -29,6 +42,7 @@ window.addEventListener("load", async () => {
 })
 
 const displayCids = (cids) => {
+  const div = document.getElementById("my-files")
   for(let i = 0; i < cids.length; i++) {
     console.log(cids[i])
 
